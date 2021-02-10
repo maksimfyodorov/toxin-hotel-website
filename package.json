@@ -10,7 +10,7 @@
     "build": "npm run clear && webpack --config ./config/webpack.production.config.js",
     "start": "webpack serve --open --config ./config/webpack.development.config.js",
     "lint": "eslint ./src",
-    "deploy": "gh-pages -d docs"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
