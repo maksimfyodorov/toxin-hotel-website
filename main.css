@@ -2,7 +2,7 @@
 
 .tr{text-decoration:none}
 
-nav{display:flex;flex-direction:column}html{font-family:Montserrat}.h1{font-family:Montserrat;font-weight:400}.h11{font-family:Montserrat}input::-moz-placeholder{color:red}input:-ms-input-placeholder{color:red}input::placeholder{color:red}
+body{background-image:url(src/components/button/img/header.png)}nav{display:flex;flex-direction:column}html{font-family:Montserrat}.h1{font-family:Montserrat;font-weight:400}.h11{font-family:Montserrat}input::-moz-placeholder{color:red}input:-ms-input-placeholder{color:red}input::placeholder{color:red}
 
 @font-face{font-family:'Montserrat';src:url(src/theme/fonts/montserrat/montserrat-v14-latin_cyrillic-700.woff2) format("woff2"),url(src/theme/fonts/montserrat/montserrat-v14-latin_cyrillic-700.woff) format("woff");font-weight:700}@font-face{font-family:'Montserrat';src:url(src/theme/fonts/montserrat/montserrat-v14-latin_cyrillic-regular.woff2) format("woff2"),url(src/theme/fonts/montserrat/montserrat-v14-latin_cyrillic-regular.woff) format("woff");font-weight:400}
 
