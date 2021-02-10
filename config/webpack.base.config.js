@@ -26,7 +26,6 @@ const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
   template: `./src/pages/${fileName}/${fileName}.pug`
 }));
 
-
 module.exports = {
     entry: './src/entry.js',
     output: {

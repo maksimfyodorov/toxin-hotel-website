@@ -1,8 +1,3 @@
-// import "./pages/uikit/uikit.scss";
-
-// import 'normalize.css';
-// import './theme/scss/fonts.scss';
-
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);
 }

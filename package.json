@@ -1,8 +1,20 @@
 {
   "name": "toxin-hotel-website",
   "version": "1.0.0",
-  "description": "",
+  "author": "Maksim Fyodorov <m.v.fyodoroff@gmail.com>",
   "private": true,
+  "license": "MIT",
+  "description": "A hotel website, where you can choose dates to stay and book a room you liked from the proposed",
+  "keywords": [
+    "Hotel",
+    "Website",
+    "Booking"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksimfyodorov/toxin-hotel-website.git"
+  },
+  "bugs": "https://github.com/maksimfyodorov/toxin-hotel-website/issues",
   "scripts": {
     "clear": "rimraf ./dist",
     "dev": "webpack --config ./config/webpack.development.config.js",
@@ -12,9 +24,6 @@
     "lint": "eslint ./src",
     "deploy": "gh-pages -d dist"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.2.4",
     "babel-core": "^6.26.3",
