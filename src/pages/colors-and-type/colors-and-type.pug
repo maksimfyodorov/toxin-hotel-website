@@ -1,4 +1,5 @@
 extends ../base/base
+include ../../components/logo/logo
 
 block variables
   -
@@ -7,4 +8,31 @@ block variables
     const description = "List of colors and type variants that are used in the project";
 
 block main
+
+  .colors-and-type 
+    .colors-and-type__logo 
+      +logo
+    main.colors-and-type__content
+      article.colors
+        section.colors__color
+          .colors__color-example 
+          .colors__color-name Dark Shade 100%
+            //- +heading
+          p.colors__color-value #1F2041
+      article.type
+    //- .container
+      //- main.colors-and-type__content
+      //-   article.colors
+      //-     section.colors__color
+      //-       .colors__color-example 
+      //-       .colors__color-name 
+      //-         //- +heading
+      //-       p.colors__color-value
+      //-   article.type
+       
+
+
+
   a(class="tr" href="./uikit.html") uikit
+  //- h1 kkkkkkkkkkkkkkk
+  
