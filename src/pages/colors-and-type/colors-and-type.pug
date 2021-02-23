@@ -6,13 +6,14 @@ block variables
     const title = "Colors & Type";
     const keywords = "Toxin, ui-kit, list of colors, type variants";
     const description = "List of colors and type variants that are used in the project";
-
+    const bodyClassName = "c-t-page"
+  
 block main
-
-  .colors-and-type 
-    .colors-and-type__logo 
-      +logo
-    main.colors-and-type__content
+  // abbreviation "c-t-page" means "colors-and-type-page"
+  .c-t-page-logo
+    +logo
+  .container
+    main.c-t-page-content
       article.colors
         section.colors__color
           .colors__color-example 
@@ -20,6 +21,10 @@ block main
             //- +heading
           p.colors__color-value #1F2041
       article.type
+        //- section.type__example
+        .type__recommended-tag-name Body
+        .type__sample-text This is the body text which is used for most of the design, like paragraphs, lists, etc.
+                              
     //- .container
       //- main.colors-and-type__content
       //-   article.colors
