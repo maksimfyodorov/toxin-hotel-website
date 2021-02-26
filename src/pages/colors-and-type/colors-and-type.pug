@@ -1,13 +1,16 @@
 extends ../base/base
 include ../../components/logo/logo
+include ../../components/heading/heading
 
 block variables
   -
-    const title = "Colors & Type";
-    const keywords = "Toxin, ui-kit, list of colors, type variants";
-    const description = "List of colors and type variants that are used in the project";
-    const bodyClassName = "c-t-page"
-  
+    const lang = 'ru'
+    const title = 'Colors & Type'
+    const keywords = 'Toxin, ui-kit, list of colors, type variants'
+    const description = 'List of colors and type variants that are used in the project'
+    const bodyClassName = 'c-t-page'
+    const {colors, type} = htmlWebpackPlugin.options.getData()
+
 block main
   // abbreviation "c-t-page" means "colors-and-type-page"
   .c-t-page-logo
@@ -15,29 +18,19 @@ block main
   .container
     main.c-t-page-content
       article.colors
-        section.colors__color
-          .colors__color-example 
-          .colors__color-name Dark Shade 100%
-            //- +heading
-          p.colors__color-value #1F2041
+        for i in colors
+          - const {color, title, value = '#1F2041'} = i
+          section.colors__color
+            div(class=`colors__color-example ${color}`)
+            .colors__color-name
+              +heading({level: "2", title: title, font: "quicksand"})
+            p.colors__color-value= value
       article.type
-        //- section.type__example
-        .type__recommended-tag-name Body
-        .type__sample-text This is the body text which is used for most of the design, like paragraphs, lists, etc.
-                              
-    //- .container
-      //- main.colors-and-type__content
-      //-   article.colors
-      //-     section.colors__color
-      //-       .colors__color-example 
-      //-       .colors__color-name 
-      //-         //- +heading
-      //-       p.colors__color-value
-      //-   article.type
-       
-
-
-
-  a(class="tr" href="./uikit.html") uikit
-  //- h1 kkkkkkkkkkkkkkk
-  
+        for i in type
+          - const {tagNameSize = '', tagName, headingLevel, sampleText} = i
+          div(class=`type__recommended-tag-name ${tagNameSize}`)= tagName
+          .type__sample-text
+            if headingLevel
+              +heading({level: headingLevel, title: sampleText})
+            else
+              p.type__paragraph= sampleText

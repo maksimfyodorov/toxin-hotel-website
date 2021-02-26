@@ -1,0 +1,49 @@
+{
+  "colors": [
+    {
+      "color": "_color_first-darkest",
+      "title": "Dark Shade 100%"
+    }, {
+      "color": "_color_first-darker",
+      "title": "Dark Shade 75%"
+    }, {
+      "color": "_color_first",
+      "title": "Dark Shade 50%"
+    },{
+      "color": "_color_first-lighter",
+      "title": "Dark Shade 25%"
+    }, {
+      "color": "_color_first-lightest",
+      "title": "Dark Shade 5%"
+    }, {
+      "color": "_color_second",
+      "title": "Purple",
+      "value": "#BC9CFF"
+    }, {
+      "color": "_color_third",
+      "title": "Green",
+      "value": "#6FCF97"
+    }
+  ],
+  "type": [
+    {
+      "tagName": "H1",
+      "tagNameSize": "_size_large",
+      "headingLevel": "1",
+      "sampleText": "This one is the sub-section or  widget title"
+    }, {
+      "tagName": "H2",
+      "tagNameSize": "_size_medium",
+      "headingLevel": "2",
+      "sampleText": "Next one is the item title inside widgets"
+    }, {
+      "tagName": "H3",
+      "tagNameSize": "_size_small",
+      "headingLevel": "3",
+      "sampleText": "This is a label or CTA text"
+    }, {
+      "tagName": "Body",
+      "sampleText": "This is the body text which is used for most of the design, like paragraphs, lists, etc."
+    }
+  ]
+}
