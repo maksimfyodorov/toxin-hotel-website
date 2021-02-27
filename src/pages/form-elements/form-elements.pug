@@ -1,0 +1,18 @@
+extends ../base/base
+include ../../components/logo/logo
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'Form elements'
+    const keywords = 'Toxin, form elements, interactive components'
+    const description = 'Page, where situated most of interactive components in different states.'
+    const bodyClassName = 'f-e-page'
+    const data = htmlWebpackPlugin.options.getData()
+
+block main
+  // abbreviation "f-e-page" means "form-elements-page"
+  .f-e-page-logo
+    +logo
+  .container
+    main

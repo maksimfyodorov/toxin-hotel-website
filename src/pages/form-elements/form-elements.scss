@@ -1,0 +1,21 @@
+@import '../../theme/scss/variables.scss';
+
+.f-e-page {
+  padding: 140px 0 130px;
+
+  &-logo {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (min-width: $large-phone-width) {
+      transform: translateX(0%);
+      left: 15px;
+    }
+
+    @media (min-width: $desktop-width) {
+      left: 29px;
+    }
+  }
+}
