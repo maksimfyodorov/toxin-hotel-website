@@ -1,30 +1,13 @@
-mixin heading (options)
-  if !options
-    - options = {}
+mixin heading ({level = '3', title, font} = {})
 
-  - const o = options
+  -
+    let className = 'heading _level_'
+    const fontModifier = `_font_${font}`
 
-  if !o.title 
-    - o.title = "Hello!!!"
-  
-  - let className = "heading"
-  - className += o.font ? " _font_" + o.font : ""
-  - const level = "_level_"
-
-  case o.level 
+  case level
     when "1"
-      h1(class=`${className} ${level}1`)= o.title
+      h1(class=`${className}${level}`)= title
     when "2"
-      h2(class=`${className} ${level}2`)= o.title
-    default 
-      h3(class=`${className} ${level}3`)= o.title
-
-  
-  
-  
-  
-  
-
-  
-    
-  
+      h2(class= font ? `${className}${level} ${fontModifier}` : `${className}${level}`)= title
+    default
+      h3(class=`${className}${level}`)= title
