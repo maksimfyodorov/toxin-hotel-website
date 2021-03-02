@@ -8,7 +8,7 @@
   height: 100px;
   width: 100px;
   height: 100px;
-  background: #000; 
+  background: #000;
   color: #fff;
   text-align: center;
   vertical-align: center;
@@ -20,7 +20,7 @@
   &:nth-child(2) {
     order: -2;
   }
-  
+
 }
 
 .grid {
@@ -31,10 +31,10 @@
   grid-template-columns: auto;
   grid-template-columns: repeat(auto-fill, 100px);
   grid-template-rows: 200px repeat(auto-fill, 100px);
-  // grid-template-columns: repeat(15, 1fr 2fr) 
+  // grid-template-columns: repeat(15, 1fr 2fr)
   // grid-auto-rows: 100px;
 
-  
+
   margin: 20px;
   background: red;
 }
@@ -58,7 +58,7 @@
 
 #grid {
   margin: 20px;
-  
+
   display: grid;
   height: 100px;
   grid-template-columns: repeat(6, 1fr);

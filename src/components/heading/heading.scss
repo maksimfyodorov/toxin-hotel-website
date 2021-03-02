@@ -6,18 +6,18 @@
   color: $color-first-darkest;
 
   &._level_1 {
-    font-size: 24px;
-    letter-spacing: -1px;
-    line-height: 32px;
+    font-size: 1.7143rem;
+    letter-spacing: -0.0714rem;
+    line-height: 2.2857rem;
   }
 
   &._level_2 {
-    font-size: 19px;
-    letter-spacing: -1px;
+    font-size: 1.3571rem;
+    letter-spacing: -0.0714rem;
   }
 
   &._level_3 {
-    font-size: 12px;
+    font-size: 0.8571rem;
     text-transform: uppercase;
   }
 
