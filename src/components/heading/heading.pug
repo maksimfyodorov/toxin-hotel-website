@@ -1,13 +1,10 @@
-mixin heading ({level = '3', title, font} = {})
+mixin heading ({level, title, font} = {})
 
   -
     let className = 'heading _level_'
     const fontModifier = `_font_${font}`
+    const levels = [1, 2, 3, 4, 5, 6]
+    const headingLevel = levels.includes(level) ? level : 3
+    const tagName = `h${headingLevel}`
 
-  case level
-    when "1"
-      h1(class=`${className}${level}`)= title
-    when "2"
-      h2(class= font ? `${className}${level} ${fontModifier}` : `${className}${level}`)= title
-    default
-      h3(class=`${className}${level}`)= title
+  #{tagName}(class= font ? `${className}${headingLevel} ${fontModifier}` : `${className}${headingLevel}`)= title
