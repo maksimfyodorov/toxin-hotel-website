@@ -24,7 +24,7 @@ block main
           section.colors__color
             div(class=`colors__color-example ${color}`)
             .colors__color-name
-              +heading({level: '2', title: title, font: 'quicksand'})
+              +heading({level: 2, title: title, font: 'quicksand'})
             p.colors__color-value= value
       article.type
         for i in type

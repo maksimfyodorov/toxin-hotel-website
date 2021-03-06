@@ -29,17 +29,17 @@
     {
       "tagName": "H1",
       "tagNameSize": "_size_large",
-      "headingLevel": "1",
+      "headingLevel": 1,
       "sampleText": "This one is the sub-section or  widget title"
     }, {
       "tagName": "H2",
       "tagNameSize": "_size_medium",
-      "headingLevel": "2",
+      "headingLevel": 2,
       "sampleText": "Next one is the item title inside widgets"
     }, {
       "tagName": "H3",
       "tagNameSize": "_size_small",
-      "headingLevel": "3",
+      "headingLevel": 3,
       "sampleText": "This is a label or CTA text"
     }, {
       "tagName": "Body",
