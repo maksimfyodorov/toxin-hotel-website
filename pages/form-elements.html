@@ -29,7 +29,7 @@
   <div class="container">
     <main class="f-e-page__content">
       <h2 class="f-e-page__subtitle">А вот и они!</h2>
-      <section class="f-e-page-column">
+      <section class="none f-e-page-column">
         <div class="f-e-page-column__text-field-states">
           <div class="text-field js-text-field _mask_email">
             <h3 class="text-field__title">Text Field</h3>
@@ -99,11 +99,38 @@
         </div>
       </section>
       <section class="f-e-page-column">
-        <div class="checkbox">
-          <label class="checkbox__label">Можно курить
-            <input class="checkbox__input" type="checkbox">
+        <div class="f-e-page-column__checkbox-buttons">
+          <div class="checkbox-list">
+            <h3 class="checkbox-list__title">Checkbox Buttons</h3>
+            <ul class="checkbox-list__list">
+              <li class="checkbox-list__checkbox">
+                <div class="checkbox">
+                  <label class="checkbox__label">Можно курить
+                    <input class="checkbox__input" type="checkbox">
+                  </label>
+                </div>
+              </li>
+              <li class="checkbox-list__checkbox">
+                <div class="checkbox">
+                  <label class="checkbox__label">Можно с питомцами
+                    <input class="checkbox__input" type="checkbox" checked>
+                  </label>
+                </div>
+              </li>
+              <li class="checkbox-list__checkbox">
+                <div class="checkbox">
+                  <label class="checkbox__label">Можно пригласить гостей<br>(до 10 человек)
+                    <input class="checkbox__input" type="checkbox" checked>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-e-page-column__radio-buttons">
+          <label class="radio-button">Мужчина
+            <input class="radio-button__input" type="radio">
           </label>
-          <p class="checkbox__description"></p>
         </div>
       </section>
     </main>
