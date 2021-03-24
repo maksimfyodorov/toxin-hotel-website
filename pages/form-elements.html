@@ -172,15 +172,45 @@
         </div>
       </section>
       <section class="f-e-page-column">
-        <div class="f-e-page-column__range-slider">
+        <div class="f-e-page-column__range-slider none">
           <div class="range-slider">
             <h3 class="range-slider__title">Range Slider</h3>
             <input class="range-slider__input js-range-slider__input" type="text">
           </div>
         </div>
-        <div class="f-e-page-column__button">
-          <button class="button">click me</button>
-          <button class="button _has-background">click me</button>
+        <div class="f-e-page-column__buttons none">
+          <h3 class="f-e-page-column__buttons-title">buttons</h3>
+          <div class="f-e-page-column__buttons-grid">
+            <button class="button _theme_filled" type="submit">
+              <div class="button__text">click me</div>
+            </button>
+            <a class="button" href="mock.html" target="_blank" rel="noopener noreferrer">
+              <div class="button__text">click me</div>
+            </a>
+            <button class="button _theme_textual" type="button">
+              <div class="button__text">click me</div>
+            </button>
+          </div>
+          <button class="button _theme_filled _with-arrow" type="submit">
+            <div class="button__text">перейти к оплате</div>
+          </button>
+        </div>
+        <div class="f-e-page-column__pagination">
+          <h3 class="f-e-page-column__pagination-title">pagination</h3>
+          <div class="pagination">
+            <ul class="pagination__list">
+              <li class="pagination__item _type_arrow-prev"></li>
+              <li class="pagination__item">1</li>
+              <li class="pagination__item _type_ellipsis"></li>
+              <li class="pagination__item">4</li>
+              <li class="pagination__item _type_selected">5</li>
+              <li class="pagination__item">6</li>
+              <li class="pagination__item _type_ellipsis"></li>
+              <li class="pagination__item">15</li>
+              <li class="pagination__item _type_arrow-next"></li>
+            </ul>
+            <p class="pagination__description">1 – 12 из 100+ вариантов аренды</p>
+          </div>
         </div>
       </section>
     </main>
