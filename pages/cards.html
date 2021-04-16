@@ -184,7 +184,111 @@
           </div>
         </form>
       </article>
-      <article class="ui-c-page__sigh-in-form">
+      <article class="ui-c-page__booking-form --none">
+        <form class="booking-form">
+          <div class="booking-form__header">
+            <div class="booking-form__room-number-container"><span class="booking-form__number-symbol">№</span>
+              <h1 class="booking-form__room-number">888</h1><span class="booking-form__room-is-luxury">люкс</span>
+            </div>
+            <div class="booking-form__price-per-day"><span>9 990₽</span><span>&nbsp;в сутки</span></div>
+          </div>
+          <div class="booking-form__date-picker">
+            <div class="date-picker js-date-picker">
+              <div class="date-picker__date-dropdowns">
+                <div class="date-picker__arrival-dropdown">
+                  <div class="text-field js-text-field _with-dropdown-arrow">
+                    <h3 class="text-field__title">прибытие</h3>
+                    <div class="text-field__container">
+                      <input class="text-field__input js-text-field__input" value="ДД.ММ.ГГГГ" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="date-picker__departure-dropdown">
+                  <div class="text-field js-text-field _with-dropdown-arrow">
+                    <h3 class="text-field__title">выезд</h3>
+                    <div class="text-field__container">
+                      <input class="text-field__input js-text-field__input" value="ДД.ММ.ГГГГ" readonly>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="date-picker__calendar">
+                <div class="date-picker__backdrop"></div>
+              </div>
+            </div>
+          </div>
+          <div class="booking-form__dropdown">
+            <div class="dropdown js-dropdown" data-type="guest-amount">
+              <h3 class="dropdown__title">гости</h3>
+              <div class="dropdown__input">
+                <div class="text-field js-text-field _with-dropdown-arrow">
+                  <h3 class="text-field__title --none"></h3>
+                  <div class="text-field__container">
+                    <input class="text-field__input js-text-field__input" name="guest-amount-dropdown" readonly>
+                  </div>
+                </div>
+              </div>
+              <ul class="dropdown__list">
+                <li class="dropdown__item" data-required-item="adults"><span class="dropdown__item-name">взрослые</span>
+                  <div class="dropdown__item-counter">
+                    <button class="dropdown__decrease-button" type="button"><span>-</span></button><span class="dropdown__item-amount">0</span>
+                    <button class="dropdown__increase-button" type="button"><span>+</span></button>
+                  </div>
+                </li>
+                <li class="dropdown__item"><span class="dropdown__item-name">дети</span>
+                  <div class="dropdown__item-counter">
+                    <button class="dropdown__decrease-button" type="button"><span>-</span></button><span class="dropdown__item-amount">0</span>
+                    <button class="dropdown__increase-button" type="button"><span>+</span></button>
+                  </div>
+                </li>
+                <li class="dropdown__item"><span class="dropdown__item-name">младенцы</span>
+                  <div class="dropdown__item-counter">
+                    <button class="dropdown__decrease-button" type="button"><span>-</span></button><span class="dropdown__item-amount">0</span>
+                    <button class="dropdown__increase-button" type="button"><span>+</span></button>
+                  </div>
+                </li>
+                <div class="dropdown__buttons">
+                  <div class="dropdown__reset-button --none">
+                    <button class="button _theme_textual" type="button">
+                      <div class="button__text">очистить</div>
+                    </button>
+                  </div>
+                  <div class="dropdown__apply-button">
+                    <button class="button _theme_textual" type="button">
+                      <div class="button__text">применить</div>
+                    </button>
+                  </div>
+                </div>
+              </ul>
+              <div class="dropdown__backdrop"></div>
+            </div>
+          </div>
+          <ul class="booking-form__order-details">
+            <li class="booking-form__order-detail">
+              <div class="booking-form__order-detail-description">9 990₽ х 4 суток</div>
+              <div class="booking-form__order-detail-tooltip _is-hidden"><span class="booking-form__order-detail-tooltip-text"></span></div>
+              <div class="booking-form__order-detail-price">39 960₽</div>
+            </li>
+            <li class="booking-form__order-detail">
+              <div class="booking-form__order-detail-description">Сбор за услуги: скидка 2 179₽</div>
+              <div class="booking-form__order-detail-tooltip"><span class="booking-form__order-detail-tooltip-text">Tooltip text</span></div>
+              <div class="booking-form__order-detail-price">0₽</div>
+            </li>
+            <li class="booking-form__order-detail">
+              <div class="booking-form__order-detail-description">Сбор за дополнительные услуги</div>
+              <div class="booking-form__order-detail-tooltip"><span class="booking-form__order-detail-tooltip-text">Tooltip text</span></div>
+              <div class="booking-form__order-detail-price">300₽</div>
+            </li>
+          </ul>
+          <div class="booking-form__total-price"><span>Итого</span><span class="booking-form__total-price-dashed-border"></span><span>38 081₽</span></div>
+          <div class="booking-form__button">
+            <button class="button _theme_filled _with-arrow" type="submit">
+              <div class="button__text">забронировать</div>
+            </button>
+          </div>
+        </form>
+      </article>
+      <article class="ui-c-page__sigh-in-form --none">
         <form class="sigh-in-form">
           <h1 class="sigh-in-form__title">Войти</h1>
           <h2 class="sigh-in-form__subtitle">Введите Ваши данные</h2>
@@ -216,6 +320,36 @@
             </div>
           </div>
         </form>
+      </article>
+      <article class="ui-c-page__room-cards">
+        <div class="room-card js-room-card">
+          <div class="room-card__slider owl-carousel">
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-1.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-2.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-3.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-4.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+          </div>
+          <div class="room-card__room-info">
+            <div class="room-card__room-number-container"><span class="room-card__number-symbol">№</span>
+              <h1 class="room-card__room-number"></h1>
+            </div>
+            <div class="room-card__price-per-day"><span></span><span>&nbsp;в сутки</span></div>
+          </div>
+        </div>
+        <div class="room-card js-room-card">
+          <div class="room-card__slider owl-carousel">
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-1.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-2.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-3.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-4.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
+          </div>
+          <div class="room-card__room-info">
+            <div class="room-card__room-number-container"><span class="room-card__number-symbol">№</span>
+              <h1 class="room-card__room-number"></h1>
+            </div>
+            <div class="room-card__price-per-day"><span></span><span>&nbsp;в сутки</span></div>
+          </div>
+        </div>
       </article>
     </main>
   </div>
