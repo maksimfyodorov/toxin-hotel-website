@@ -18,8 +18,8 @@
   <!-- abbreviation "ui-c-page" means "ui-cards-page"-->
   <h1 class="ui-c-page__title">Интерактивные формы проекта "Toxin"</h1>
   <div class="ui-c-page__logo">
-    <div class="logo">
-      <svg class="logo__icon" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <div class="ui-logo">
+      <svg class="ui-logo__icon" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path d="M23.9989 32.4712C23.2224 32.4712 22.5871 31.8359 22.5871 31.0594C22.5871 25.6241 18.14 21.177 12.7047 21.177C11.9283 21.177 11.293 20.5418 11.293 19.7653C11.293 18.9888 11.9283 18.3535 12.7047 18.3535C19.7283 18.3535 25.4106 24.0359 25.4106 31.0594C25.4106 31.8359 24.7753 32.4712 23.9989 32.4712Z" fill="#1F2041" fill-opacity="0.25"></path>
         <path d="M36.7068 19.7653C36.7068 20.5418 36.0715 21.177 35.295 21.177C31.9421 21.177 28.9421 22.8712 27.1774 25.4476C26.7892 24.4594 26.3303 23.5418 25.7656 22.6947C28.095 20.0123 31.5186 18.3535 35.295 18.3535C36.0715 18.3535 36.7068 18.9888 36.7068 19.7653Z" fill="#1F2041" fill-opacity="0.25"></path>
         <path d="M24 48C10.7647 48 0 37.2353 0 24C0 10.7647 10.7647 0 24 0C37.2353 0 48 10.7647 48 24C48 37.2353 37.2353 48 24 48ZM24 2.82353C12.3176 2.82353 2.82353 12.3176 2.82353 24C2.82353 35.6824 12.3176 45.1765 24 45.1765C35.6824 45.1765 45.1765 35.6824 45.1765 24C45.1765 12.3176 35.6824 2.82353 24 2.82353Z" fill="#1F2041" fill-opacity="0.25"></path>
@@ -28,7 +28,7 @@
   </div>
   <div class="container">
     <main class="ui-c-page__content">
-      <article class="ui-c-page__search-room-form --none">
+      <article class="ui-c-page__search-room-form">
         <form class="search-room-form">
           <div class="search-room-form__content">
             <h1 class="search-room-form__title">Найдём номера под ваши пожелания</h1>
@@ -112,7 +112,7 @@
           </div>
         </form>
       </article>
-      <article class="ui-c-page__sigh-up-form --none">
+      <article class="ui-c-page__sigh-up-form">
         <form class="sigh-up-form">
           <h1 class="sigh-up-form__title">Регистрация аккаунта</h1>
           <h2 class="sigh-up-form__subtitle">Введите данные</h2>
@@ -184,7 +184,7 @@
           </div>
         </form>
       </article>
-      <article class="ui-c-page__booking-form --none">
+      <article class="ui-c-page__booking-form">
         <form class="booking-form">
           <div class="booking-form__header">
             <div class="booking-form__room-number-container"><span class="booking-form__number-symbol">№</span>
@@ -288,7 +288,7 @@
           </div>
         </form>
       </article>
-      <article class="ui-c-page__sigh-in-form --none">
+      <article class="ui-c-page__sigh-in-form">
         <form class="sigh-in-form">
           <h1 class="sigh-in-form__title">Войти</h1>
           <h2 class="sigh-in-form__subtitle">Введите Ваши данные</h2>
@@ -330,24 +330,24 @@
             <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-4.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
           </div>
           <div class="room-card__room-info">
-            <div class="room-card__room-number-container"><span class="room-card__number-symbol">№</span>
-              <h1 class="room-card__room-number"></h1>
+            <div class="room-card__room-info-header">
+              <div class="room-card__room-number-container"><span class="room-card__number-symbol">№</span>
+                <h1 class="room-card__room-number">888</h1><span class="room-card__room-is-luxury">люкс</span>
+              </div>
+              <div class="room-card__price-per-day"><span>9 990₽</span><span>&nbsp;в сутки</span></div>
             </div>
-            <div class="room-card__price-per-day"><span></span><span>&nbsp;в сутки</span></div>
-          </div>
-        </div>
-        <div class="room-card js-room-card">
-          <div class="room-card__slider owl-carousel">
-            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-1.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
-            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-2.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
-            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-3.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
-            <div class="room-card__slide"><img class="room-card__slide-img" src="../src/components/room-card/img/room-4.jpg" alt="Один из номеров отеля &quot;Toxin&quot;"></div>
-          </div>
-          <div class="room-card__room-info">
-            <div class="room-card__room-number-container"><span class="room-card__number-symbol">№</span>
-              <h1 class="room-card__room-number"></h1>
+            <div class="room-card__room-info-footer">
+              <div class="room-card__star-rating">
+                <div class="star-rating js-star-rating">
+                  <button class="star-rating__star _activated js-current-rated" type="button" data-index="1"></button>
+                  <button class="star-rating__star _activated js-current-rated" type="button" data-index="2"></button>
+                  <button class="star-rating__star _activated js-current-rated" type="button" data-index="3"></button>
+                  <button class="star-rating__star _activated js-current-rated" type="button" data-index="4"></button>
+                  <button class="star-rating__star _activated js-current-rated" type="button" data-index="5"></button>
+                </div>
+              </div>
+              <div class="room-card__reviews-amount">145<span>&nbsp;Отзывов</span></div>
             </div>
-            <div class="room-card__price-per-day"><span></span><span>&nbsp;в сутки</span></div>
           </div>
         </div>
       </article>
