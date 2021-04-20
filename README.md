@@ -10,3 +10,4 @@ To get familiar to the project [just click here](https://maksimfyodorov.github.i
 * JS
 * BEM
 * Webpack
+* Pixel perfect
