@@ -1,0 +1,23 @@
+extends ../base/base
+include ../../components/header/header
+include ../../components/sigh-up-form/sigh-up-form
+include ../../components/footer/footer
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'Toxin | Sigh up'
+    const keywords = 'Toxin, hotel, sigh up'
+    const description = 'Регистрация аккаунта, создать аккаунт, учетная запись'
+    const bodyClassName = 's-u-page'
+
+block main
+  // abbreviation "s-u-page" means "sigh-up-page"
+  .s-u-page__header
+    +header({withoutButton: 'sighUp'})
+  main.s-u-page__content
+    .s-u-page__container
+      .s-u-page__form
+        +sigh-up-form()
+  .s-u-page__footer
+    +footer()

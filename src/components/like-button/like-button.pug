@@ -1,0 +1,10 @@
+mixin like-button( {text = '12', name, value, isActivated = true} = {} )
+  -
+    const activatedModifier = isActivated && '_activated'
+    const buttonAttributes = {
+      type: 'button',
+      name: name,
+      value: value,
+    }
+
+  button.like-button.js-like-button(class = activatedModifier)&attributes(buttonAttributes)= text

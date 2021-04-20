@@ -1,0 +1,32 @@
+.comments {
+  max-width: 711px;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 48px auto;
+    grid-column-gap: 10px;
+  }
+
+  &__user-photo {
+    grid-row-end: span 2;
+    margin-bottom: 10px;
+  }
+
+  &__user {
+    padding-top: 3px;
+  }
+
+  &__date {
+    padding-bottom: 6px;
+  }
+
+  &__like-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+  }
+
+  &__comment {
+    line-height: 1.7143;
+  }
+}

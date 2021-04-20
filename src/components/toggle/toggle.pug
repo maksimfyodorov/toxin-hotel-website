@@ -1,0 +1,11 @@
+mixin toggle( {labelText = 'Получать спецпредложения', name, value, isChecked} = {} )
+  -
+    const inputAttributes = {
+      type: 'checkbox',
+      name: name,
+      value: value,
+      checked: isChecked
+    }
+
+  label.toggle= labelText
+    input.toggle__input&attributes(inputAttributes)

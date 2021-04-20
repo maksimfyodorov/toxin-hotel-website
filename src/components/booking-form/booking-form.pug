@@ -1,0 +1,36 @@
+include ../date-picker/date-picker
+include ../dropdown/dropdown
+include ../button/button
+
+mixin booking-form( {roomNumber, isLuxury, pricePerDay, orderDetailsList = [], totalPrice} = {} )
+
+  form.booking-form
+    .booking-form__header
+      .booking-form__room-number-container
+        span.booking-form__number-symbol №
+        h1.booking-form__room-number= roomNumber
+        if isLuxury
+          span.booking-form__room-is-luxury= isLuxury
+      .booking-form__price-per-day
+        span= pricePerDay
+        span &nbsp;в сутки
+    .booking-form__date-picker
+      +date-picker()
+    .booking-form__dropdown
+      +dropdown({type: 'guest-amount', title: 'гости'})
+    ul.booking-form__order-details
+      each detail in orderDetailsList
+        -
+          const {description, tooltip, price} = detail
+          const isHidden = !tooltip && '_is-hidden'
+        li.booking-form__order-detail
+          .booking-form__order-detail-description= description
+          .booking-form__order-detail-tooltip(class = isHidden)
+            span.booking-form__order-detail-tooltip-text= tooltip
+          .booking-form__order-detail-price= price
+    .booking-form__total-price
+      span Итого
+      span.booking-form__total-price-dashed-border
+      span= totalPrice
+    .booking-form__button
+      +button({type: 'submit', text: 'забронировать', theme: 'filled', hasArrow: true})

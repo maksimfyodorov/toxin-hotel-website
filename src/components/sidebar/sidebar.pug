@@ -1,0 +1,36 @@
+include ../button/button
+include ../text-field/text-field
+include ../dropdown/dropdown
+include ../range-slider/range-slider
+include ../checkbox-list/checkbox-list
+include ../checkbox/checkbox
+
+mixin sidebar( {title = 'Боковая панель сайта'} = {} )
+  -
+    const fs = require('fs')
+    const data = JSON.parse(fs.readFileSync('./src/components/sidebar/data.json'))
+    const {checkboxList, facilitiesCheckboxList} = data
+
+  aside.sidebar.js-sidebar
+    h2.sidebar__title= title
+    .sidebar__button
+      +button({text: 'Показать фильтры', hasDropdownArrow: true})
+    .sidebar__sections
+      section.sidebar__section
+        +text-field({title: 'даты пребывания в отеле', value: '19 авг - 23 авг', hasDropdownArrow: true})
+      section.sidebar__section
+        +dropdown({title: 'гости', type: 'guest-amount'})
+      section.sidebar__section
+        +range-slider({title: 'диапазон цены'})
+      section.sidebar__section
+        +checkbox-list({title: 'правила дома', checkboxList: checkboxList})
+      section.sidebar__section
+        h3.sidebar__section-title доступность
+        .sidebar__section-item
+          +checkbox({labelText: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
+        .sidebar__section-item
+          +checkbox({labelText: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'})
+      section.sidebar__section
+        +dropdown({title: 'удобства номера'})
+      section.sidebar__section
+        +checkbox-list({title: 'дополнительные удобства', checkboxList: facilitiesCheckboxList, isExpandable: true})

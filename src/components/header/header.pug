@@ -1,0 +1,56 @@
+include ../logo/logo
+include ../button/button
+include ../container/container
+
+mixin header( {userName, withoutButton} = {} )
+  -
+    const linkAttributes = {
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      }
+    const withoutButtonModifiers = {
+      sighUp: '_without_sigh-up-button',
+      sighIn: '_without_sigh-in-button'
+    }
+    const classes = [withoutButtonModifiers[withoutButton]]
+
+    const fs = require('fs')
+    const data = JSON.parse(fs.readFileSync('./src/components/header/data.json'))
+    const {navLinks, subNavServices, subNavAgreements} = data
+
+  header.header.js-header(class = classes)
+    +container()
+      .header__container
+        .header__logo
+          +logo()
+        .header__nav-block
+          nav.header__nav-links
+            each link in navLinks
+              -
+                const {text, url, subNavLinks} = link
+                const tagName = subNavLinks ? 'div' : 'a'
+                const isLink = tagName === 'a'
+                const hasAttributes = isLink && linkAttributes
+                const hasArrowClass = subNavLinks && '_has-arrow'
+              #{tagName}.header__nav-link(class = hasArrowClass href = url)&attributes(hasAttributes)= text
+                if subNavLinks
+                  -
+                    const requiredSubNavLinks = {
+                      subNavServices: subNavServices,
+                      subNavAgreements: subNavAgreements
+                    }
+                  nav.header__sub-nav
+                    each link in requiredSubNavLinks[subNavLinks]
+                      - const {text, url} = link
+                      a.header__sub-nav-link(href = url)&attributes(linkAttributes)= text
+          if !userName
+            nav.header__nav-buttons
+              .header__sigh-up-button
+                +button({type: 'link', url: './sigh-up.html', theme: 'filled', text:'зарегистрироваться'})
+              .header__sigh-in-button
+                +button({type: 'link', url: 'sigh-in.html', text: 'войти'})
+          else
+            span.header__user-name= userName
+        .header__burger.js-header__burger
+          span.header__burger-line
+        .header__backdrop

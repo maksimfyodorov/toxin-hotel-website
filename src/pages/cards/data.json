@@ -1,0 +1,27 @@
+{
+  "orderDetailsList": [
+    {
+      "description": "9 990₽ х 4 суток",
+      "price": "39 960₽"
+    },{
+      "description": "Сбор за услуги: скидка 2 179₽",
+      "tooltip": "Tooltip text",
+      "price": "0₽"
+    },{
+      "description": "Сбор за дополнительные услуги",
+      "tooltip": "Tooltip text",
+      "price": "300₽"
+    }
+  ],
+  "roomCardImages": [
+    {
+      "url": "../src/components/room-card/img/room-1.jpg"
+    },{
+      "url": "../src/components/room-card/img/room-2.jpg"
+    },{
+      "url": "../src/components/room-card/img/room-3.jpg"
+    },{
+      "url": "../src/components/room-card/img/room-4.jpg"
+    }
+  ]
+}

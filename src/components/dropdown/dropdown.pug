@@ -1,0 +1,37 @@
+include ../text-field/text-field
+include ../button/button
+
+mixin dropdown( {title = 'dropdown', type = 'room-facilities'} = {} )
+  -
+    const isRoomFacilities = type === 'room-facilities'
+    const dropdownType = isRoomFacilities ? 'room-facilities' : 'guest-amount'
+    const inputName = isRoomFacilities ? 'room-facilities-dropdown' : 'guest-amount-dropdown'
+
+    const fs = require('fs')
+    const data = JSON.parse(fs.readFileSync('./src/components/dropdown/data.json'))
+    const {roomFacilitiesItems, guestAmountItems} = data
+    const requiredItems = isRoomFacilities ? roomFacilitiesItems : guestAmountItems
+
+  .dropdown.js-dropdown(data-type = dropdownType)
+    if title
+      h3.dropdown__title= title
+    .dropdown__input
+      +text-field({name: inputName, hasDropdownArrow: true, readonly: true})
+    ul.dropdown__list
+      each item in requiredItems
+        - const {name, amount, requiredItem} = item
+        li.dropdown__item(data-required-item = requiredItem)
+          span.dropdown__item-name= name
+          .dropdown__item-counter
+            button.dropdown__decrease-button(type="button")
+              span -
+            span.dropdown__item-amount= amount
+            button.dropdown__increase-button(type="button")
+              span +
+      if !isRoomFacilities
+        .dropdown__buttons
+          .dropdown__reset-button.--none
+            +button({theme: 'textual', text: 'очистить'})
+          .dropdown__apply-button
+            +button({theme: 'textual', text: 'применить'})
+    .dropdown__backdrop

@@ -1,0 +1,17 @@
+include ../text-field/text-field
+include ../button/button
+
+mixin sigh-in-form( {title = 'Войти', subtitle = 'Введите Ваши данные', url = './sigh-up.html'} = {} )
+
+  form.sigh-in-form
+    h1.sigh-in-form__title= title
+    h2.sigh-in-form__subtitle= subtitle
+    .sigh-in-form__login-data
+      +text-field({placeholder: 'Email'})
+      +text-field({placeholder: 'Пароль'})
+    .sigh-in-form__sigh-in-button
+      +button({text: 'войти', theme: 'filled'})
+    .sigh-in-form__footer
+      .sigh-in-form__footer-description Нет аккаунта на Toxin?
+      .sigh-in-form__sigh-up-button
+        +button({type: 'link', url: url, text: 'создать'})

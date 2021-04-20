@@ -1,0 +1,43 @@
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+@import '../../theme/scss/mixins/form.scss';
+
+.sigh-in-form {
+  @include form;
+
+  &__title {
+    @include h1;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    @include visually-hidden;
+  }
+
+  &__login-data {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__sigh-in-button {
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__footer-description {
+    color: #000;
+  }
+
+  &__sigh-up-button {
+    margin-left: 15px;
+    min-width: 100px;
+  }
+}

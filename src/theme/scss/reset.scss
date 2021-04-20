@@ -5,6 +5,7 @@ body {
 
 a,
 a:hover {
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -43,10 +44,7 @@ input {
 
 textarea,
 button,
-input {
+input,
+a {
   outline: none;
-}
-
-.none {
-  display: none !important;
 }

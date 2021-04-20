@@ -1,0 +1,72 @@
+@import '../../theme/scss/mixins/container.scss';
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+@import '../../theme/scss/mixins/visually-visible.scss';
+
+.r-f-page {
+  &__title {
+    @include visually-hidden;
+
+    @media (min-width: 582px) {
+      @include visually-visible;
+      @include h1;
+      display: block;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 1191px) {
+      text-align: left;
+    }
+  }
+
+  &__container {
+    @include container;
+    padding-bottom: 70px;
+    position: relative;
+
+    @media (min-width: 582px) {
+      padding-left: 292px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    @media (min-width: 907px) {
+      padding-left: 325px;
+    }
+  }
+
+  &__sidebar {
+    margin: 0 auto;
+    max-width: 265px;
+    width: 100%;
+
+    @media (min-width: 582px) {
+      position: absolute;
+      left: 15px;
+      top: 0;
+    }
+  }
+
+  &__subtitle {
+    @include visually-hidden;
+  }
+
+  &__room-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    justify-content: space-evenly;
+    column-gap: 12px;
+    row-gap: 21px;
+    margin-bottom: 40px;
+
+    @media (min-width: 1191px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

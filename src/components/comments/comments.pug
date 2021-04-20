@@ -1,0 +1,14 @@
+include ../like-button/like-button
+
+mixin comments( {commentsList = [], alt = 'Один из посетителей'} = {} )
+
+  .comments
+    each comment in commentsList
+      - const {url, userName, date, text} = comment
+      .comments__item
+        img.comments__user-photo(src = url alt = alt)
+        h4.comments__user= userName
+        .comments__date= date
+        .comments__like-button
+          +like-button()
+        p.comments__comment= text

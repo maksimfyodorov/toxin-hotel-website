@@ -1,0 +1,44 @@
+{
+  "navLinks": [
+    {
+      "text": "О нас",
+      "url": "./mock.html"
+    },{
+      "text": "Услуги",
+      "subNavLinks": "subNavServices"
+    },{
+      "text": "Вакансии",
+      "url": "./mock.html"
+    },{
+      "text": "Новости",
+      "url": "./mock.html"
+    },{
+      "text": "Соглашения",
+      "subNavLinks": "subNavAgreements"
+    }
+  ],
+  "subNavServices": [
+    {
+      "text": "Услуга",
+      "url": "./mock.html"
+    },{
+      "text": "Услуга",
+      "url": "./mock.html"
+    },{
+      "text": "Услуга",
+      "url": "./mock.html"
+    }
+  ],
+  "subNavAgreements": [
+    {
+      "text": "Соглашение",
+      "url": "./mock.html"
+    },{
+      "text": "Соглашение",
+      "url": "./mock.html"
+    },{
+      "text": "Соглашение",
+      "url": "./mock.html"
+    }
+  ]
+}

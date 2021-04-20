@@ -1,0 +1,7 @@
+mixin star-rating( {rating  = 1, max = 5} = {} )
+  -
+    let count = 0
+
+  .star-rating.js-star-rating
+    while count++ < max
+      button.star-rating__star(class = (count <= rating) ? '_activated js-current-rated' : '')(type="button" data-index = count)

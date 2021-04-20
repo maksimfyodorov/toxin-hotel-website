@@ -1,0 +1,25 @@
+extends ../base/base
+include ../../components/ui-logo/ui-logo
+include ../../components/container/container
+include ../../components/header/header
+include ../../components/footer/footer
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'Headers and footers'
+    const keywords = 'Toxin, hotel, ui-kit, headers, footers'
+    const description = 'Возможные варианты верхней и нижней частей страниц сайта'
+    const bodyClassName = 'h-f-page'
+
+block main
+  // abbreviation "h-f-page" means "headers-and-footers-page"
+  h1.h-f-page__title Headers и footers проекта "Toxin"
+  .h-f-page__logo
+    +ui-logo()
+  .h-f-page__header
+    +header()
+  .h-f-page__header
+    +header({userName: 'Константинопольский Константинопольский'})
+  .h-f-page__footer
+    +footer()

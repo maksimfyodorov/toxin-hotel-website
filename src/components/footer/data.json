@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "isLogo": true,
+      "description": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+    },
+    {
+      "areNavSections": true
+    },{
+      "hasSubscriptionField": true,
+      "subtitle": "Подписка",
+      "description": "Получайте специальные предложения и новости сервиса"
+    }
+  ],
+  "navSections": [
+    {
+      "subtitle": "навигация",
+      "navLinks": "navLinksList"
+    },{
+      "subtitle": "о нас",
+      "navLinks": "aboutUsLinksList"
+    },{
+      "subtitle": "Служба поддержки",
+      "navLinks": "supportLinksList"
+    }
+  ],
+  "navLinksList": [
+    {
+      "text": "О нас",
+      "url": "./mock.html"
+    },{
+      "text": "Новости",
+      "url": "./mock.html"
+    },{
+      "text": "Служба поддержки",
+      "url": "./mock.html"
+    },{
+      "text": "Услуги",
+      "url": "./mock.html"
+    }
+  ],
+  "aboutUsLinksList": [
+    {
+      "text": "О сервисе",
+      "url": "./mock.html"
+    },{
+      "text": "Наша команда",
+      "url": "./mock.html"
+    },{
+      "text": "Вакансии",
+      "url": "./mock.html"
+    },{
+      "text": "Инвесторы",
+      "url": "./mock.html"
+    }
+  ],
+  "supportLinksList": [
+    {
+      "text": "Соглашения",
+      "url": "./mock.html"
+    },{
+      "text": "Сообщества",
+      "url": "./mock.html"
+    },{
+      "text": "Связь с нами",
+      "url": "./mock.html"
+    }
+  ]
+}

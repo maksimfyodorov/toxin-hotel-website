@@ -1,0 +1,54 @@
+include ../logo/logo
+include ../socials/socials
+include ../text-field/text-field
+
+mixin footer()
+  -
+    const linkAttributes = {
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      }
+    const fs = require('fs')
+    const data = JSON.parse(fs.readFileSync('./src/components/footer/data.json'))
+    const {sections, navSections, navLinksList, aboutUsLinksList, supportLinksList} = data
+
+  footer.footer
+    h2.footer__title Полезная информация сайта
+    .footer__top
+      .footer__top-container
+        each section in sections
+          -
+            const {isLogo, description, subtitle, areNavSections, hasSubscriptionField} = section
+            const sizeModifier = areNavSections && '_size_large'
+          section.footer__section(class = sizeModifier)
+            if isLogo
+              .footer__logo
+                +logo()
+            if subtitle
+              h3.footer__subtitle= subtitle
+            if areNavSections
+              each navSection in navSections
+                -
+                  const {subtitle, navLinks} = navSection
+                  const requiredNavLinks = {
+                    navLinksList: navLinksList,
+                    aboutUsLinksList: aboutUsLinksList,
+                    supportLinksList: supportLinksList
+                  }
+                .footer__nav
+                  h3.footer__subtitle= subtitle
+                  ul.footer__nav-list
+                    each link in requiredNavLinks[navLinks]
+                      - const {text, url} = link
+                      li.footer__nav-item
+                          a.footer__link(href = url)&attributes(linkAttributes)= text
+            if description
+              p.footer__description= description
+            if hasSubscriptionField
+              form.footer__form
+                +text-field({placeholder: 'Email', hasButton: true})
+    .footer__bottom
+      .footer__bottom-container
+        p.footer__copyright Copyright © 2018 Toxin отель. Все права защищены.
+        .footer__socials
+          +socials()

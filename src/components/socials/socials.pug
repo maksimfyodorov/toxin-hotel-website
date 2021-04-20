@@ -1,0 +1,15 @@
+mixin socials()
+  -
+    const linkAttributes = {
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      }
+    const fs = require('fs')
+    const data = JSON.parse(fs.readFileSync('./src/components/socials/data.json'))
+    const {socials} = data
+
+  .socials
+    each link in socials
+      - const {url, src, alt} = link
+      a.socials__link(href = url)&attributes(linkAttributes)
+        img(src = src alt = alt)

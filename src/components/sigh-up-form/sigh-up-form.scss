@@ -1,0 +1,61 @@
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+@import '../../theme/scss/mixins/form.scss';
+
+.sigh-up-form {
+  @include form;
+
+  &__title {
+    @include h1;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media (min-width: 410px) {
+      text-align: left;
+    }
+  }
+
+  &__subtitle {
+    @include visually-hidden;
+  }
+
+  &__first-name-input,
+  &__last-name-input {
+    margin-bottom: 10px;
+  }
+
+  &__radio-buttons {
+    margin-bottom: 20px;
+  }
+
+  &__date-of-birth {
+    margin-bottom: 20px;
+  }
+
+  &__login-data {
+    row-gap: 10px;
+    display: grid;
+    margin-bottom: 20px;
+  }
+
+  &__payment-button{
+    margin-bottom: 20px;
+  }
+
+  &__footer{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__footer-description {
+    color: #000;
+  }
+
+  &__sigh-in-button {
+    min-width: 100px;
+    margin-left: 15px;
+  }
+}

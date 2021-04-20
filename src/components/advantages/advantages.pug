@@ -1,0 +1,9 @@
+mixin advantages( {advantagesList = []} = {} )
+
+  ul.advantages
+    each advantage in advantagesList
+      - const {url, alt, title, description} = advantage
+      li.advantages__item
+        img.advantages__item-icon(src = url alt = alt)
+        h4.advantages__item-title= title
+        p.advantages__item-description= description

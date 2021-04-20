@@ -1,0 +1,28 @@
+{
+  "roomFacilitiesItems": [
+    {
+      "name": "спальни",
+      "amount": "2"
+    },{
+      "name": "кровати",
+      "amount": "2",
+      "requiredItem": "beds"
+    },{
+      "name": "ванные комнаты",
+      "amount": "0"
+    }
+  ],
+  "guestAmountItems": [
+    {
+      "name": "взрослые",
+      "amount": "0",
+      "requiredItem": "adults"
+    },{
+      "name": "дети",
+      "amount": "0"
+    },{
+      "name": "младенцы",
+      "amount": "0"
+    }
+  ]
+}

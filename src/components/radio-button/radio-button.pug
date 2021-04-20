@@ -1,0 +1,13 @@
+mixin radio-button( {labelText = 'Мужчина', name = 'gender', value = 'male', isChecked} = {} )
+  -
+    const inputAttributes = {
+      type: 'radio',
+      name: name,
+      value: value,
+      checked: isChecked
+    }
+
+  .radio-button
+    label.radio-button__label
+      input.radio-button__input&attributes(inputAttributes)
+      span.radio-button__label-text= labelText

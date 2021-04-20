@@ -27,3 +27,11 @@
     url('../fonts/quicksand/quicksand-regular.woff') format('woff');
   font-weight: 400;
 }
+
+@font-face {
+  font-family: 'Material Icons';
+  src:
+    url('../fonts/material-icons/material-icons-regular.woff2') format('woff2'),
+    url('../fonts/material-icons/material-icons-regular.woff') format('woff');
+  font-weight: 400;
+}

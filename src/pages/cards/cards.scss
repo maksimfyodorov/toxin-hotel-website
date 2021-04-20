@@ -1,0 +1,26 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+
+.ui-c-page {
+  padding: 140px 0 150px;
+  background: #E5E5E5;
+
+  &__title {
+    @include visually-hidden;
+  }
+
+  &__content {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+
+    @media (min-width: 830px) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media (min-width: 1230px) {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+}

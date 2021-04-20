@@ -1,0 +1,151 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/material-icons.scss';
+@import '../../theme/scss/mixins/titles.scss';
+
+.room-card {
+  $r: &;
+  max-width: 270px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px $color-first-lightest;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__slider {
+    position: relative;
+    height: 150px;
+
+    #{$r}__slide {
+      width: 270px;
+      height: 150px;
+    }
+
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, .5) 0%,
+        rgba(0, 0, 0, 0) 100%) !important;
+      width: 44px;
+      height: 100%;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &::before {
+        @include material-icons;
+        content: 'keyboard_arrow_left';
+        color: #FFFFFF;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+    }
+
+    .owl-next {
+      right: 0;
+      transform: rotateY(180deg) translateY(-50%);
+    }
+
+    .owl-dots {
+      position: absolute;
+      bottom: 14px;
+      right: 15px;
+    }
+
+    .owl-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid #FFFFFF !important;
+      filter: drop-shadow(0px 5px 5px rgba(31, 32, 65, 0.3));
+      margin-right: 3px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.active {
+        background: #fff;
+      }
+    }
+  }
+
+  &__room-info {
+    padding: 20px;
+    padding-top: 23px;
+    padding-bottom: 15px;
+  }
+
+  &__room-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+    margin-bottom: 8px;
+  }
+
+  &__room-number-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__number-symbol {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-first-darkest;
+  }
+
+  &__room-number {
+    @include h1;
+    line-height: 1;
+    font-size: 20px;
+    margin-left: 4px;
+    margin-right: 10px;
+  }
+
+  &__room-is-luxury {
+    @include h3;
+    color: $color-second;
+    line-height: unset;
+  }
+
+  &__price-per-day {
+    font-weight: 400;
+    font-size: 12px;
+    color: $color-first;
+
+    & span:first-child {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 5px;
+    }
+  }
+
+  &__room-info-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__reviews-amount {
+    color: $color-first;
+    font-size: 14px;
+    font-weight: 700;
+
+    & span {
+      font-weight: 400;
+      font-size: 12px;
+    }
+  }
+}

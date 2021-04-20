@@ -1,0 +1,31 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/form.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+
+.search-room-form {
+  @include form;
+
+  &__content {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include h1;
+    max-width: 318px;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    @include visually-hidden;
+  }
+
+  &__date-picker {
+    margin-bottom: 20px;
+  }
+
+  &__dropdown {
+    margin-bottom: 30px;
+  }
+}

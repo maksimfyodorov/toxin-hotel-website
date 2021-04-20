@@ -1,0 +1,23 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/material-icons.scss';
+
+.star-rating {
+  display: inline-flex;
+
+  &__star {
+    $r: &;
+    @include material-icons;
+    background: $gradient-primary;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+
+    &::before {
+      content: 'star_border';
+    }
+
+    &._activated#{$r}::before {
+      content: 'star';
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../theme/scss/variables.scss';
+
+.ui-logo {
+  position: absolute;
+  top: 2.1429rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (min-width: $large-phone-width) {
+    transform: translateX(0%);
+    left: 1.0714rem;
+  }
+
+  @media (min-width: $desktop-width) {
+    left: 2.0714rem;
+  }
+}

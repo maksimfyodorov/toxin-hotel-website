@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const pages = [];
@@ -27,46 +28,41 @@ const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
 }));
 
 module.exports = {
-    entry: './src/entry.js',
-    output: {
-      path: path.resolve(__dirname, '..', 'dist'),
-      filename: '[name].js'
-    },
-    plugins: [].concat(htmlPlugins),
-    module: {
-        rules: [
-            {
-                test: /\.pug$/,
-                loader: 'pug-loader',
-                options: {
-                    pretty: true
-                }
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                type: 'asset',
-                generator: {
-                  filename: '[path][name][ext]'
-                }
-            },
-            {
-              test: /\.(png|jpg|svg|gif|webmanifest|ico)$/,
-              type: 'asset/resource',
-              generator: {
-                filename: '[path][name][ext]'
-              }
-            },
-            // {
-            //   test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-            //   loader: 'file-loader?name=[path][name].[ext]'
-            // }
-            // {
-            //   test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/i,
-            //   loader: 'file-loader',
-            //   options: {
-            //     name: '[path][name].[ext]',
-            //   },
-            // }
-        ]
-    }
+  entry: './src/entry.js',
+  output: {
+    path: path.resolve(__dirname, '..', 'dist'),
+    filename: '[name].js'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
+  ].concat(htmlPlugins),
+  module: {
+    rules: [
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        options: {
+            pretty: true
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset',
+        generator: {
+          filename: '[path][name][ext]'
+        }
+      },
+      {
+        test: /\.(png|jpg|svg|gif|webmanifest|ico)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[path][name][ext]'
+        }
+      },
+    ]
+  }
 }

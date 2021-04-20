@@ -1,0 +1,36 @@
+extends ../base/base
+include ../../components/ui-logo/ui-logo
+include ../../components/container/container
+include ../../components/search-room-form/search-room-form
+include ../../components/date-picker/date-picker
+include ../../components/sigh-up-form/sigh-up-form
+include ../../components/booking-form/booking-form
+include ../../components/sigh-in-form/sigh-in-form
+include ../../components/room-card/room-card
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'UI Cards'
+    const keywords = 'Toxin, hotel-website, forms, cards'
+    const description = 'Страница демо-проекта "Toxin", на которой расположены интерактивные формы, использующиеся в дальнейшем'
+    const bodyClassName = 'ui-c-page'
+    const {orderDetailsList, roomCardImages} = htmlWebpackPlugin.options.getData()
+
+block main
+  // abbreviation "ui-c-page" means "ui-cards-page"
+  h1.ui-c-page__title Интерактивные формы проекта "Toxin"
+  .ui-c-page__logo
+    +ui-logo
+  +container
+    main.ui-c-page__content
+      article.ui-c-page__search-room-form
+        +search-room-form({title: 'Найдём номера под ваши пожелания'})
+      article.ui-c-page__sigh-up-form
+        +sigh-up-form({title: 'Регистрация аккаунта'})
+      article.ui-c-page__booking-form
+        +booking-form({roomNumber: '888', isLuxury: 'люкс', pricePerDay: '9 990₽', orderDetailsList: orderDetailsList, totalPrice: '38 081₽'})
+      article.ui-c-page__sigh-in-form
+        +sigh-in-form({title: 'Войти'})
+      article.ui-c-page__room-cards
+        +room-card({images: roomCardImages, roomNumber: '888', isLuxury: 'люкс', pricePerDay: '9 990₽', reviewsAmount: 145})

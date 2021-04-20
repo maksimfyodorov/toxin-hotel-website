@@ -1,211 +1,207 @@
-const select = document.querySelectorAll('.select');
-
-select.forEach((i) => {
-  const selectInput = i.querySelector('.select__input');
-  const backdrop = i.querySelector('.select__backdrop');
-  const dropdown = i.querySelector('.select__dropdown');
-  // const textField = i.querySelector('.text-field')
-  const input = i.querySelector('.input');
-  const setInputWidth = i.querySelector('.set-input-width');
-  const hiddenSpan = setInputWidth.nextElementSibling;
-
-  const guests = i.getAttribute('data-type') === 'guests';
-  const roomsConfig = i.getAttribute('data-type') === 'rooms-config';
-  const checkboxList = i.getAttribute('data-type') === 'checkbox-list';
-//   const dates = i.getAttribute('data-type') === 'dates';
-
-  const roomsConfigTemplate = `
-                                <ul class="select__list">
-                                    <li class="select__item">
-                                        <span class="label-text">спальни</span>
-                                        <div class="select__item-number">   
-                                            <span class="label-text">2</span>
-                                            <div class="select__item-minus"> </div>
-                                            <div class="select__item-plus">+</div>
-                                        </div>
-                                    </li>
-                                    <li class="select__item">
-                                        <span class="label-text">кровати</span>
-                                        <div class="select__item-number">
-                                            <span class="label-text">2</span>
-                                            <div class="select__item-minus"> </div>
-                                            <div class="select__item-plus">+</div>
-                                        </div>
-                                    </li>
-                                    <li class="select__item">
-                                        <span class="label-text">ванные комнаты</span>
-                                        <div class="select__item-number">
-                                            <span class="label-text">0</span>
-                                            <div class="select__item-minus"> </div>
-                                            <div class="select__item-plus">+</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            `;
-  const guestsTemplate = `
-                            <ul class="select__list">
-                                <li class="select__item">
-                                    <span class="label-text">взрослые</span>
-                                    <div class="select__item-number">
-                                        <span class="label-text">0</span>
-                                        <div class="select__item-minus"></div>
-                                        <div class="select__item-plus">+</div>
-                                    </div>
-                                </li>
-                                <li class="select__item">
-                                    <span class="label-text">дети</span>
-                                    <div class="select__item-number">
-                                        <span class="label-text">0</span>
-                                        <div class="select__item-minus"></div>
-                                        <div class="select__item-plus">+</div>
-                                    </div>
-                                </li>
-                                <li class="select__item">
-                                    <span class="label-text">младенцы</span>
-                                    <div class="select__item-number">
-                                        <span class="label-text">0</span>
-                                        <div class="select__item-minus"></div>
-                                        <div class="select__item-plus">+</div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="select__apply-wrap">
-                                <span class="select__clear">очистить</span>
-                                <span class="select__apply">применить</span>
-                                </div>
-                            `;
-  const textForms1 = ['спальня', 'спальни', 'спален'];
-  const textForms2 = ['кровать', 'кровати', 'кроватей'];
-  const textForms3 = ['ванная комната', 'ванные комнаты', 'ванных комнат'];
-  const textForms4 = ['гость', 'гостя', 'гостей'];
-
-  input.setAttribute('readonly', '');
-
-  if (roomsConfig) {
-    dropdown.innerHTML = roomsConfigTemplate;
-    input.value = '2 спальни, 2 кровати';
-    setInputWidth.style.display = 'block';
-    setInputWidth.textContent = input.value;
-    setTimeout(() => {
-      input.style.width = `${setInputWidth.offsetWidth}px`;
-      hiddenSpan.style.display = 'block';
-    }, 500);
-    showHidden(dropdownSum());
-  } else if (guests) {
-    dropdown.style.paddingBottom = '0px';
-    dropdown.innerHTML = guestsTemplate;
-    input.value = 'Сколько гостей';
-    applyChanges();
-    clearValues();
-    showHidden(dropdownSum());
-  } else if (checkboxList) {
-    input.closest('.text-field').classList.add('border-none');
-    input.classList.add('border-none-text');
-    dropdown.classList.add('border-none');
+class Dropdown {
+  constructor(element) {
+    this.dropdown = element
+    this._init()
   }
 
-  // else if (dates) {
-  //     textField.style.width = "150px"
-  //     input.value = 'ДД.ММ.ГГГГ'
-  //     dropdown.style.display = 'none'
-  // }
+  _init() {
+    this._getDomElements()
+    this._switchDisabledAttributeToDecreaseButtons()
+    this._setDefaultStateToItems()
+    this._addListeners()
+  }
 
-  selectInput.addEventListener('click', () => {
-    i.classList.toggle('open');
-  });
+  _getDomElements() {
+    this.roomFacilitiesDropdown = this.dropdown.dataset.type === 'room-facilities'
+    this.input = this.dropdown.querySelector('.dropdown__input')
+    this.textField = this.dropdown.querySelector('.text-field')
+    this.textFieldInput = this.dropdown.querySelector('.text-field__input')
+    this.dropdownItems = this.dropdown.querySelectorAll('.dropdown__item')
+    this.itemAmountList = this.dropdown.querySelectorAll('.dropdown__item-amount')
+    this.resetButton = this.dropdown.querySelector('.dropdown__reset-button')
+    this.applyButton = this.dropdown.querySelector('.dropdown__apply-button')
+    this.increaseButtons = this.dropdown.querySelectorAll('.dropdown__increase-button')
+    this.decreaseButtons = this.dropdown.querySelectorAll('.dropdown__decrease-button')
+    this.backdrop = this.dropdown.querySelector('.dropdown__backdrop')
+  }
 
-  backdrop.addEventListener('click', () => {
-    i.classList.remove('open');
-  });
-
-  dropdown.addEventListener('click', (event) => {
-    increaseOrDecreaseSum(event);
-    showHidden(dropdownSum());
-
-    if (roomsConfig) {
-      const arr = dropdown.querySelectorAll('.select__item-number');
-      const num1 = arr[0].children[0].textContent;
-      const num2 = arr[1].children[0].textContent;
-      const num3 = arr[2].children[0].textContent;
-
-      const array = `${num1} ${declOfNum(parseInt(num1), textForms1)}, ${num2} ${declOfNum(parseInt(num2), textForms2)}, ${num3} ${declOfNum(parseInt(num3), textForms3)}`.split(',');
-      input.value = `${array[0]}, ${array[1]}`;
-      setInputWidth.textContent = input.value;
-      input.style.width = `${setInputWidth.offsetWidth}px`;
-    } else if (guests) {
-      if (dropdownSum() > 0) {
-        input.value = `${dropdownSum()} ${declOfNum(dropdownSum(), textForms4)}`;
+  _switchDisabledAttributeToDecreaseButtons() {
+    this.decreaseButtons.forEach(button => {
+      const itemCounter = button.closest('.dropdown__item-counter')
+      const itemAmount = itemCounter.querySelector('.dropdown__item-amount')
+      const itemAmountValue = parseInt(itemAmount.innerText, 10)
+      if (itemAmountValue === 0) {
+        button.setAttribute('disabled', 'disabled')
       } else {
-        input.value = 'Сколько гостей';
+        button.removeAttribute('disabled')
       }
-    }
-  });
+    })
+  }
 
-  function increaseOrDecreaseSum(event) {
-    const e = event.target;
-    if (e.matches('.select__item-minus') || e.matches('.select__item-plus')) {
-      let count = e.closest('.select__item-number').querySelector('.label-text').textContent;
-      if (e.matches('.select__item-minus')) {
-        count = parseInt(count, 10) - 1;
-        e.closest('.select__item-number').querySelector('.label-text').textContent = count;
-      } else {
-        count = parseInt(count) + 1;
-        e.closest('.select__item-number').querySelector('.label-text').textContent = count;
+  _addListeners() {
+    this.input.addEventListener('click', this._handleInputClick.bind(this))
+    this.increaseButtons.forEach(button => {
+      button.addEventListener('click', this._handleIncreaseButtonClick.bind(this))
+    })
+    this.decreaseButtons.forEach(button => {
+      button.addEventListener('click', this._handleDecreaseButtonClick.bind(this))
+    })
+    if (this.resetButton !== null) this.resetButton.addEventListener('click', this._handleResetButtonClick.bind(this))
+    if (!this.roomFacilitiesDropdown) this.applyButton.addEventListener('click', this._handleApplyButtonClick.bind(this))
+    this.backdrop.addEventListener('click', this._handleBackdropClick.bind(this))
+  }
+
+  _handleInputClick() {
+    this.dropdown.classList.toggle('_expanded')
+    this.textField.classList.toggle('_expanded')
+  }
+
+  _handleIncreaseButtonClick(event) {
+    const {target} = event
+    const itemCounter = target.closest('.dropdown__item-counter')
+    const itemAmount = itemCounter.querySelector('.dropdown__item-amount')
+    let itemAmountValue = parseInt(itemAmount.innerText, 10)
+    itemAmount.innerText = itemAmountValue += 1
+    this.textFieldInput.value = this._formInputValue()
+    this._switchDisabledAttributeToDecreaseButtons()
+    this._setDefaultStateToItems()
+    this._renderResetButton()
+  }
+
+  _handleDecreaseButtonClick(event) {
+    const {target} = event
+    const itemCounter = target.closest('.dropdown__item-counter')
+    const itemAmount = itemCounter.querySelector('.dropdown__item-amount')
+    let itemAmountValue = parseInt(itemAmount.innerText, 10)
+    itemAmount.innerText = itemAmountValue -= 1
+    this.textFieldInput.value = this._formInputValue()
+    this._switchDisabledAttributeToDecreaseButtons()
+    this._setDefaultStateToItems()
+    this._hideResetButton()
+  }
+
+  _handleResetButtonClick() {
+    this.itemAmountList.forEach(item => {
+      item.innerText = '0'
+    })
+    this.resetButton.classList.add('--none')
+    this._setDefaultStateToItems()
+  }
+
+  _handleApplyButtonClick() {
+    this._closeDropdown()
+  }
+
+  _handleBackdropClick() {
+    this._closeDropdown()
+  }
+
+  _closeDropdown() {
+    this.dropdown.classList.remove('_expanded')
+    this.textField.classList.remove('_expanded')
+  }
+
+  _setDefaultStateToItems() {
+    this.dropdownItems.forEach(item => {
+      if (item.dataset.requiredItem === 'adults') {
+        const itemAmount = parseInt(item.querySelector('.dropdown__item-amount').innerText, 10)
+        if (itemAmount === 0) {
+          this.dropdownItems.forEach(item => {
+            item.querySelector('.dropdown__item-amount').innerText = '0'
+          })
+          this.decreaseButtons.forEach(button => {
+            button.setAttribute('disabled', 'disabled')
+          })
+          this.increaseButtons.forEach(button => {
+            button.setAttribute('disabled', 'disabled')
+          })
+          item.querySelector('.dropdown__increase-button').removeAttribute('disabled')
+        } else {
+          this.increaseButtons.forEach(button => {
+            button.removeAttribute('disabled')
+          })
+        }
       }
-    }
-  }
 
-  function dropdownSum() {
-    let num = 0;
-    const arr = dropdown.querySelectorAll('.select__item-number');
-    arr.forEach((i) => {
-      num += parseInt(i.querySelector('.label-text').textContent);
-    });
-    return num;
-  }
-
-  function showHidden(num) {
-    const arr = dropdown.querySelectorAll('.select__item-number');
-    arr.forEach((i) => {
-      const number = i.querySelector('.label-text');
-      const minus = i.querySelector('.select__item-minus');
-      parseInt(number.textContent) > 0 ? minus.style.display = 'flex' : minus.style.display = 'none';
-      if (i.previousElementSibling.textContent === 'спальни'
-                || i.previousElementSibling.textContent === 'кровати') {
-        parseInt(number.textContent) > 1 ? minus.style.display = 'flex' : minus.style.display = 'none';
+      if (item.dataset.requiredItem === 'beds') {
+        const itemAmount = parseInt(item.querySelector('.dropdown__item-amount').innerText, 10)
+        if (itemAmount === 1) {
+          item.querySelector('.dropdown__decrease-button').setAttribute('disabled', 'disabled')
+        } else {
+          item.querySelector('.dropdown__decrease-button').removeAttribute('disabled')
+        }
       }
-    });
+    })
+    this.textFieldInput.value = this._formInputValue()
+  }
 
-    if (guests) {
-      const clear = dropdown.querySelector('.select__clear');
-      num > 0 ? clear.style.display = 'block' : clear.style.display = 'none';
+  _formInputValue() {
+    const array = []
+
+    this.dropdownItems.forEach(item => {
+      const name = item.querySelector('.dropdown__item-name').innerText.toLowerCase()
+      const amount = parseInt(item.querySelector('.dropdown__item-amount').innerText, 10)
+      if (amount > 0) {
+        const resultString = this.roomFacilitiesDropdown ? `${amount} ${this._getCorrectWordForm(amount, name)}` : `${amount}`
+        array.push(resultString)
+      }
+    })
+
+    let inputValue
+    if (this.roomFacilitiesDropdown) {
+      inputValue = array.join(', ')
+    } else {
+      const arraySum = this._calculateSumOfArrayItems(array)
+      inputValue = array.length > 0 ? `${arraySum} ${this._getCorrectWordForm(arraySum, 'гость')}` : 'Сколько гостей'
+    }
+
+    return inputValue
+  }
+
+  _calculateSumOfArrayItems(array) {
+    const arr = array.map(item => parseInt(item, 10))
+    const arrSum = arr.reduce((sum, current) => sum + current, 0)
+    return arrSum
+  }
+
+  _getCorrectWordForm(num, name) {
+    const wordForms1 = ['спальня', 'спальни', 'спален']
+    const wordForms2 = ['кровать', 'кровати', 'кроватей']
+    const wordForms3 = ['ванная комната', 'ванные комнаты', 'ванных комнат']
+    const wordForms4 = ['гость', 'гостя', 'гостей']
+    const wordFormsList = [wordForms1, wordForms2, wordForms3, wordForms4]
+    let wordForm
+
+    wordFormsList.forEach(wordForms => {
+      if (wordForms.includes(name)) wordForm = this._declOfNum(num, wordForms)
+    })
+    return wordForm
+  }
+
+  _declOfNum(n, wordForms) {
+    n = n % 100
+    const n1 = n % 10
+    if (n > 10 && n < 20) return wordForms[2]
+    if (n1 > 1 && n1 < 5) return wordForms[1]
+    if (n1 == 1) return wordForms[0]
+    return wordForms[2]
+  }
+
+  _renderResetButton() {
+    if (!this.roomFacilitiesDropdown) {
+      this.itemAmountList.forEach(item => {
+        if (parseInt(item.innerText, 10) >= 1) this.resetButton.classList.remove('--none')
+      })
     }
   }
 
-  function applyChanges() {
-    const apply = dropdown.querySelector('.select__apply');
-    apply.addEventListener('click', () => {
-      if (dropdownSum() > 0) i.classList.remove('open');
-    });
+  _hideResetButton() {
+    if (!this.roomFacilitiesDropdown) {
+      const array = Array.from(this.itemAmountList).map(item => item.innerText)
+      const arraySum = this._calculateSumOfArrayItems(array)
+      if (arraySum === 0) this.resetButton.classList.add('--none')
+    }
   }
+}
 
-  function clearValues() {
-    const clear = dropdown.querySelector('.select__clear');
-    clear.addEventListener('click', () => {
-      const arr = dropdown.querySelectorAll('.select__item-number');
-      arr.forEach((i) => {
-        i.querySelector('.label-text').textContent = 0;
-      });
-    });
-  }
-
-  function declOfNum(n, textForms) {
-    n %= 100;
-    const n1 = n % 10;
-
-    if (n > 10 && n < 20) return textForms[2];
-    if (n1 > 1 && n1 < 5) return textForms[1];
-    if (n1 == 1) return textForms[0];
-    return textForms[2];
-  }
-});
+export default Dropdown

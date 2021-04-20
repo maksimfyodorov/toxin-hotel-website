@@ -1,0 +1,16 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+
+.h-f-page {
+  padding: 140px 0;
+  background: #e5e5e5;
+
+  &__title {
+    @include visually-hidden;
+  }
+
+  &__header {
+    margin-bottom: 40px;
+  }
+}

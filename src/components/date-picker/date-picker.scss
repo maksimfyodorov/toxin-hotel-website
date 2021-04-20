@@ -1,0 +1,318 @@
+@import '../../theme/scss/variables.scss';
+@import '../../../node_modules/air-datepicker/dist/css/datepicker.min.css';
+@import '../../theme/scss/mixins/material-icons.scss';
+@import '../../theme/scss/mixins/titles.scss';
+
+.date-picker {
+  $r: &;
+  max-width: 320px;
+  position: relative;
+  z-index: 2;
+
+  &__date-dropdowns {
+    display: flex;
+  }
+
+  &__arrival-dropdown {
+    margin-right: 10px;
+
+    @media (min-width: 350px) {
+      margin-right: 20px;
+    }
+  }
+
+  &__calendar {
+    display: none;
+    position: relative;
+
+    &._expanded {
+      display: block;
+
+      #{$r}__backdrop {
+        display: block;
+      }
+    }
+
+    .datepicker-inline .datepicker {
+      position: absolute;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      transform: none;
+    }
+
+    & .datepicker {
+      width: inherit;
+      padding: 9px 9px 19px;
+      background: #FFFFFF;
+      border: 1px solid $color-first-lighter;
+      box-shadow: 0px 10px 20px $color-first-lightest;
+      border-radius: 4px;
+      user-select: none;
+      margin-top: 5px;
+      font-family: $main-font;
+      font-size: 12px;
+      color: $color-first;
+
+      &--nav {
+        border: unset;
+        padding: 0;
+        margin-bottom: 30px;
+        min-height: unset;
+      }
+
+      &--nav-action {
+        width: unset;
+        border-radius: unset;
+
+        &:hover {
+          background: inherit;
+        }
+      }
+
+      &--arrow-prev,
+      &--arrow-next {
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+
+        &::before {
+          @include material-icons;
+          content: 'arrow_back';
+          color: $color-second;
+        }
+
+        &:hover {
+          opacity: .7;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: $box-shadow-primary;
+        }
+
+        &:focus:not(:focus-visible) {
+          box-shadow: unset;
+        }
+
+        &:focus-visible {
+          outline: none;
+          box-shadow: $box-shadow-primary;
+        }
+
+        &:active {
+          box-shadow: unset;
+          opacity: 1;
+        }
+      }
+
+      &--arrow-next::before {
+        content: 'arrow_forward';
+      }
+
+      &--nav-title {
+        @include h2;
+        letter-spacing: unset;
+
+        & i {
+          color: $color-first-darkest;
+        }
+      }
+
+      &--content {
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      &--days-names,
+      &--cells {
+        max-width: 245px;
+        margin: 0 auto;
+
+        @media (min-width: 350px) {
+          max-width: 280px;
+        }
+      }
+
+      &--cells {
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      &--cell {
+        all: unset;
+      }
+
+      &--day-name,
+      &--cell-day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 35px;
+        width: 100%;
+        height: 35px;
+        font-weight: 700;
+        color: $color-second;
+        font-size: 12px;
+        text-transform: unset;
+        cursor: pointer;
+
+        @media (min-width: 350px) {
+          max-width: 40px;
+          height: 40px;
+        }
+      }
+
+      &--cell-day {
+        font-weight: 400;
+        color: $color-first;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+          position: absolute;
+          content: '';
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+          z-index: -1;
+        }
+
+        &.-disabled- {
+          cursor: default;
+          font-weight: 400 !important;
+          color: $color-first !important;
+
+          .datepicker--cell-day::before{
+            content: none;
+          }
+        }
+
+        &:hover,
+        &.-selected- {
+          font-weight: 700;
+          color: #fff;
+        }
+
+        &:hover::before,
+        &.-selected-::before {
+          background: $gradient-primary;
+        }
+
+        &.-selected- {
+          color: #fff;
+
+          &.-focus- {
+            font-weight: 700;
+          }
+        }
+
+        &.-focus- {
+          background: transparent;
+        }
+
+        &.-current- {
+          font-weight: 700;
+          color: #fff;
+          background: transparent;
+
+          &::before {
+            background: $color-third;
+          }
+        }
+
+        &.-in-range- {
+          background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+        }
+
+        &.-range-from-,
+        &.-range-to- {
+          border: unset;
+          position: relative;
+          font-weight: 700;
+          color: #fff;
+
+          &::after {
+            position: absolute;
+            right: 0;
+            content: '';
+            width: 50%;
+            height: inherit;
+            z-index: -2;
+            background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+          }
+
+          &::before {
+            position: absolute;
+            content: '';
+            width: inherit;
+            height: inherit;
+            border-radius: 50%;
+            z-index: -1;
+            background: $gradient-primary;
+          }
+        }
+
+        &.-range-to-::after {
+          left: 0;
+        }
+      }
+
+      & .-other-month- {
+        color: $color-first-lighter;
+
+        &:hover,
+        &.-selected- {
+          color: #fff;
+          background: transparent;
+        }
+
+        &.-range-from-,
+        &.-range-to- {
+          color: #fff;
+        }
+      }
+
+      &--buttons {
+        all: unset;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &--button {
+        all: unset;
+        @include h3;
+        display: inline-block;
+        background: transparent;
+        min-width: fit-content;
+        max-width: fit-content;
+        min-height: fit-content;
+        color: $color-second;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-first;
+        }
+
+        &:focus {
+          box-shadow: unset;
+          color: $color-first;
+        }
+
+        &:active {
+          color: $color-second;
+        }
+      }
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    display: none;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,29 @@
+include ../text-field/text-field
+include ../button/button
+include ../radio-button/radio-button
+include ../toggle/toggle
+
+mixin sigh-up-form( {title = 'Регистрация аккаунта', subtitle = 'Введите данные', url = './sigh-in.html'} = {} )
+
+  form.sigh-up-form
+    h1.sigh-up-form__title= title
+    h2.sigh-up-form__subtitle= subtitle
+    .sigh-up-form__first-name-input
+      +text-field({placeholder: 'Имя'})
+    .sigh-up-form__last-name-input
+      +text-field({placeholder: 'Фамилия'})
+    .sigh-up-form__radio-buttons
+      +radio-button()
+      +radio-button({labelText: 'Женщина', value: 'female'})
+    .sigh-up-form__date-of-birth
+      +text-field({title: 'дата рождения', placeholder: 'ДД.ММ.ГГГГ'})
+    .sigh-up-form__login-data
+      +text-field({title: 'данные для входа в сервис', placeholder: 'Имя'})
+      +text-field({placeholder: 'Имя'})
+      +toggle()
+    .sigh-up-form__payment-button
+      +button({text: 'перейти к оплате', theme: 'filled'})
+    .sigh-up-form__footer
+      .sigh-up-form__footer-description Уже есть аккаунт на Toxin
+      .sigh-up-form__sigh-in-button
+        +button({type: 'link', url: url, text: 'войти'})

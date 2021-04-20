@@ -1,0 +1,16 @@
+@mixin form {
+  max-width: 380px;
+  padding: 29px 9px 29px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  @media (min-width: 370px) {
+    padding: 39px 19px 29px;
+  }
+
+  @media (min-width: 390px) {
+    padding: 39px 29px 29px;
+  }
+}

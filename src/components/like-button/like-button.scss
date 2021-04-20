@@ -1,0 +1,40 @@
+@import '../../theme/scss/variables.scss';
+@import '../../theme/scss/mixins/material-icons.scss';
+
+.like-button {
+  $r: &;
+  position: relative;
+  min-width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid $color-first-lighter;
+  padding-left: 15px;
+  padding-right: 10px;
+  font: $default-text;
+  font-size: 10px;
+  text-align: right;
+  color: $color-first-lighter;
+  background: #FFFFFF;
+
+  &::before {
+    @include material-icons;
+    font-size: 10px;
+    content: 'favorite_border';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+  }
+
+  &._activated {
+    border: 1px solid $color-second;
+    color: $color-second;
+
+    &#{$r}::before {
+      content: 'favorite';
+      background: $gradient-primary;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+
+.sidebar {
+  $r: &;
+  max-width: 265px;
+  width: 100%;
+  padding-bottom: 30px;
+
+  @media (min-width: 582px) {
+    padding: 30px 0;
+  }
+
+  &._expanded {
+    #{$r}__sections {
+      display: block;
+    }
+  }
+
+  &__title {
+    @include visually-hidden;
+  }
+
+  &__button {
+    margin-bottom: 30px;
+
+    @media (min-width: 582px) {
+      display: none;
+    }
+  }
+
+  &__sections {
+    display: none;
+
+    @media (min-width: 582px) {
+      display: block;
+    }
+  }
+
+  &__section {
+    margin-bottom: 30px;
+
+    &-title {
+      @include h3;
+      margin-bottom: 17px;
+    }
+
+    &-item + &-item {
+      margin-top: 10px;
+    }
+  }
+}

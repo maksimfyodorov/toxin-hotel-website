@@ -1,0 +1,145 @@
+@import '../../theme/scss/mixins/titles.scss';
+@import '../../theme/scss/mixins/visually-hidden.scss';
+@import '../../theme/scss/mixins/form.scss';
+@import '../../theme/scss/variables.scss';
+
+.booking-form {
+  @include form;
+  $r: &;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 22px;
+  }
+
+  &__room-number-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__number-symbol {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-first-darkest;
+  }
+
+  &__room-number {
+    @include h1;
+    line-height: 1;
+    margin-left: 4px;
+    margin-right: 10px;
+  }
+
+  &__room-is-luxury {
+    @include h3;
+    color: $color-second;
+    line-height: unset;
+  }
+
+  &__price-per-day {
+    font-weight: 400;
+    font-size: 12px;
+    color: $color-first;
+
+    & span:first-child {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 5px;
+    }
+  }
+
+  &__date-picker {
+    margin-bottom: 20px;
+  }
+
+  &__dropdown {
+    margin-bottom: 22px;
+  }
+
+  &__order-details {
+    margin-bottom: 30px;
+  }
+
+  &__order-detail {
+    display: grid;
+    grid-template-columns: minmax(auto, 214px) 20px minmax(65px, auto);
+    column-gap: 5px;
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__order-detail-tooltip {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $color-first-lighter;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: 'i';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-first-lighter;
+      font-weight: 700;
+    }
+
+    &._is-hidden {
+      visibility: hidden;
+    }
+
+    &:hover #{$r}__order-detail-tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__order-detail-tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color:  transparent transparent #555 transparent;
+    }
+  }
+
+  &__order-detail-price {
+    justify-self: right;
+  }
+
+  &__total-price {
+    @include h2;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    margin-bottom: 20px;
+  }
+
+  &__total-price-dashed-border {
+    border-bottom: 1px dashed $color-first-lighter;
+    margin: 0 4px 4px;
+  }
+}

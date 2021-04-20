@@ -1,0 +1,7 @@
+mixin range-slider( {title = 'Range Slider', description = 'Стоимость за сутки пребывания в номере'} = {} )
+
+  .range-slider
+    h3.range-slider__title= title
+    input.range-slider__input.js-range-slider__input(type="text")
+    if description
+      p.range-slider__description= description

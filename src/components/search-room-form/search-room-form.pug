@@ -1,0 +1,16 @@
+include ../date-picker/date-picker
+include ../dropdown/dropdown
+include ../button/button
+
+mixin search-room-form( {title = 'Найдём номера под ваши пожелания', subtitle = 'Выберите даты и укажите количество гостей', url} = {} )
+
+  form.search-room-form
+    .search-room-form__content
+      h1.search-room-form__title= title
+      h2.search-room-form__subtitle= subtitle
+      .search-room-form__date-picker
+        +date-picker()
+      .search-room-form__dropdown
+        +dropdown({title: 'гости', type: 'guest-amount'})
+      .search-room-form__button
+        +button({type: 'link', url: url, text: 'подобрать номер', theme: 'filled', hasArrow: true})

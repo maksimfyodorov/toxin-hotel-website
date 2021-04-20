@@ -1,0 +1,23 @@
+extends ../base/base
+include ../../components/header/header
+include ../../components/sigh-in-form/sigh-in-form
+include ../../components/footer/footer
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'Toxin | Sigh in'
+    const keywords = 'Toxin, hotel, sigh in'
+    const description = 'войти в свой аккаунт, пройти авторизацию, ввести учетные данные'
+    const bodyClassName = 's-i-page'
+
+block main
+  // abbreviation "s-i-page" means "sigh-in-page"
+  .s-i-page__header
+    +header({withoutButton: 'sighIn'})
+  main.s-i-page__content
+    .s-i-page__container
+      .s-i-page__form
+        +sigh-in-form()
+  .s-i-page__footer
+    +footer()

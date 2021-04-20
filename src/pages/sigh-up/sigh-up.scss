@@ -1,0 +1,19 @@
+@import '../../theme/scss/mixins/container.scss';
+
+.s-u-page {
+  &__content {
+    background-color: #cacacc;
+    background-image: url(./img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__container {
+    @include container;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

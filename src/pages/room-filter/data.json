@@ -1,0 +1,199 @@
+{
+  "roomCards": [
+    {
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-1.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "888",
+      "isLuxury": true,
+      "pricePerDay": "9 990₽",
+      "rating": 5,
+      "reviewsAmount": "145"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-1.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "840",
+      "pricePerDay": "9 900₽",
+      "rating": 4,
+      "reviewsAmount": "65"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-1.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "980",
+      "isLuxury": true,
+      "pricePerDay": "8 500₽",
+      "rating": 3,
+      "reviewsAmount": "35"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-4.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-1.jpg"
+        }
+      ],
+      "roomNumber": "856",
+      "pricePerDay": "7 300₽",
+      "rating": 5,
+      "reviewsAmount": "19"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-5.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-6.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-7.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-8.jpg"
+        }
+      ],
+      "roomNumber": "740",
+      "pricePerDay": "6 000₽",
+      "rating": 4,
+      "reviewsAmount": "44"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-6.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "982",
+      "pricePerDay": "5 800₽",
+      "rating": 3,
+      "reviewsAmount": "56"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-7.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "678",
+      "pricePerDay": "5 500₽",
+      "rating": 5,
+      "reviewsAmount": "45"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-8.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "450",
+      "pricePerDay": "5 300₽",
+      "rating": 4,
+      "reviewsAmount": "39"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-9.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "350",
+      "pricePerDay": "5 000₽",
+      "rating": 3,
+      "reviewsAmount": "77"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-10.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "676",
+      "pricePerDay": "5 000₽",
+      "rating": 5,
+      "reviewsAmount": "25"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-11.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "444",
+      "pricePerDay": "5 000₽",
+      "rating": 3,
+      "reviewsAmount": "15"
+    },{
+      "images": [
+        {
+          "url": "../src/components/room-card/img/room-12.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-2.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-3.jpg"
+        },{
+          "url": "../src/components/room-card/img/room-4.jpg"
+        }
+      ],
+      "roomNumber": "352",
+      "pricePerDay": "5 500₽",
+      "rating": 3,
+      "reviewsAmount": "55"
+    }
+  ]
+}

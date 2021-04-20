@@ -2,10 +2,6 @@ const { merge } = require('webpack-merge')
 const base = require('./webpack.base.config.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
-const ghpages = require('gh-pages');
-
-
-
 
 module.exports = merge(base, {
   mode: 'production',
@@ -23,7 +19,6 @@ module.exports = merge(base, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              // publicPath: '../../',
               publicPath: '',
             },
           },
@@ -44,4 +39,4 @@ module.exports = merge(base, {
       },
     ]
   }
-});
+})

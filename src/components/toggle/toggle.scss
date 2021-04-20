@@ -1,0 +1,57 @@
+@import '../../theme/scss/variables.scss';
+
+.toggle {
+  $r: &;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  padding-left: 50px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.714;
+
+  &:hover #{$r}__input::before {
+    border: 1px solid $color-second;
+  }
+
+  &__input {
+    width: 0;
+    height: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      border: 1px solid $color-first-lighter;
+      transition-duration: 300ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $color-first-lighter;
+      transition-duration: 300ms;
+    }
+
+    &:focus::before,
+    &:checked::before {
+      border: 1px solid $color-second;
+      transition-duration: 500ms;
+    }
+
+    &:checked::after {
+      left: 24px;
+      background: $gradient-primary;
+      transition-duration: 500ms;
+    }
+  }
+}

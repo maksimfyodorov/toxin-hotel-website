@@ -1,0 +1,34 @@
+extends ../base/base
+include ../../components/header/header
+include ../../components/sidebar/sidebar
+include ../../components/room-card/room-card
+include ../../components/footer/footer
+include ../../components/pagination/pagination
+
+block variables
+  -
+    const lang = 'ru'
+    const title = 'Toxin | Room filter'
+    const keywords = 'Toxin, hotel, room filter, просмотр номеров, выбрать номер'
+    const description = 'Страница, на которой представлены номера отеля "Toxin", доступные для ознакомления и дальнейшего бронирования'
+    const bodyClassName = 'r-f-page'
+    const {roomCards} = htmlWebpackPlugin.options.getData()
+
+block main
+  // abbreviation "r-f-page" means "room-filter-page"
+  .r-f-page__header
+    +header()
+  .r-f-page__container
+    h1.r-f-page__title Номера, которые мы для вас подобрали
+    .r-f-page__sidebar
+      +sidebar()
+    main.r-f-page__main
+      h2.r-f-page__subtitle Список номеров
+      ul.r-f-page__room-cards
+        each roomCard in roomCards
+          li.r-f-page__room-card
+            +room-card(roomCard)
+      .r-f-page__pagination
+        +pagination()
+  .r-f-page__footer
+    +footer()

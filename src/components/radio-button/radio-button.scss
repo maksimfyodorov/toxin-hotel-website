@@ -1,0 +1,66 @@
+@import '../../theme/scss/variables.scss';
+
+.radio-button {
+  $r: &;
+  display: inline-block;
+  padding-left: 30px;
+  padding-right: 16px;
+  line-height: 1.714;
+
+  &__label {
+    position: relative;
+    color: $color-first;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-first-darker;
+    }
+
+    &:hover #{$r}__input::before {
+      border: 1px solid $color-second;
+    }
+  }
+
+  &__input {
+    width: 0;
+    height: 0;
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0px;
+      left: -30px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid $color-first-lighter;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+      top: 4px;
+      left: -26px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $gradient-primary;
+    }
+
+    &:checked::before,
+    &:focus::before {
+      border: 1px solid $color-second;
+    }
+
+    &:checked::after {
+      display: inline-block;
+    }
+
+    &:checked + #{$r}__label-text,
+    &:focus + #{$r}__label-text {
+      color: $color-first-darker;
+    }
+  }
+}

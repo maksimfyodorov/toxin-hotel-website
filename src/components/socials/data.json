@@ -1,0 +1,18 @@
+{
+  "socials": [
+    {
+      "url": "https://twitter.com/",
+      "src": "../src/components/socials/img/twitter.svg",
+      "alt": "Twitter"
+    },
+    {
+      "url": "https://www.facebook.com/",
+      "src": "../src/components/socials/img/facebook.svg",
+      "alt": "Facebook"
+    },{
+      "url": "https://www.instagram.com/",
+      "src": "../src/components/socials/img/instagram.svg",
+      "alt": "Instagram"
+    }
+  ]
+}

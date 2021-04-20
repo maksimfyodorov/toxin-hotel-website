@@ -1,0 +1,12 @@
+include ../text-field/text-field
+
+mixin date-picker()
+
+  .date-picker.js-date-picker
+    .date-picker__date-dropdowns
+      .date-picker__arrival-dropdown
+        +text-field({title: 'прибытие', isDateDropdown: true})
+      .date-picker__departure-dropdown
+        +text-field({title: 'выезд', isDateDropdown: true})
+    .date-picker__calendar
+      .date-picker__backdrop

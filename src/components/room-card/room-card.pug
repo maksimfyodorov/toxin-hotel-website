@@ -1,0 +1,25 @@
+include ../star-rating/star-rating
+
+mixin room-card( {images = [], alt = 'Один из номеров отеля "Toxin"', roomNumber, isLuxury, pricePerDay, rating = 1, reviewsAmount } = {} )
+
+  .room-card.js-room-card
+    .room-card__slider.owl-carousel
+      each image in images
+        - const {url} = image
+        .room-card__slide
+          img.room-card__slide-img(src = url alt = alt)
+    .room-card__room-info
+      .room-card__room-info-header
+        .room-card__room-number-container
+          span.room-card__number-symbol №
+          h1.room-card__room-number= roomNumber
+          if isLuxury
+            span.room-card__room-is-luxury люкс
+        .room-card__price-per-day
+          span= pricePerDay
+          span &nbsp;в сутки
+      .room-card__room-info-footer
+        .room-card__star-rating
+          +star-rating({rating: rating})
+        .room-card__reviews-amount= reviewsAmount
+          span &nbsp;Отзывов
