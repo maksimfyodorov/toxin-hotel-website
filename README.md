@@ -7,6 +7,6 @@ To get familiar to the project [just click here](https://maksimfyodorov.github.i
 * CSS3
 * Pug
 * SCSS
-* Webpack
 * JS
 * BEM
+* Webpack
